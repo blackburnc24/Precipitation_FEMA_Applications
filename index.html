@@ -64,17 +64,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-geometryutil@0.9.3/src/leaflet.geometryutil.min.js"></script>
 <script>
-  var mymap = L.map('map', {
-    center: [35.5946, -82.5540],
-    zoom: 8,
-    maxZoom: 18,
-    minZoom: 6,
-    detectRetina: true
-  });
+var mymap = L.map('map', {
+  center: [35.5946, -82.5540],
+  zoom: 8,
+  maxZoom: 18,
+  minZoom: 6,
+  detectRetina: true,
+  attributionControl: true  // ✅ keep this true or omit entirely
+});
 
-  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Data Sources: <a href="https://www.fema.gov/openfema-data-page/individuals-and-households-program-valid-registrations-v1" target="_blank">FEMA IHP Valid Registrations</a>, <a href="https://prism.oregonstate.edu/" target="_blank">PRISM Climate Data</a> | Base Map &copy; <a href="https://carto.com/">CartoDB</a> | Map Author: Caleb Blackburn'
-  }).addTo(mymap);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+  attribution: `Map data © <a href="https://leafletjs.com" target="_blank">Leaflet</a> | Data Sources: <a href="https://www.fema.gov/openfema-data-page/individuals-and-households-program-valid-registrations-v1" target="_blank">FEMA IHP</a>, <a href="https://prism.oregonstate.edu/" target="_blank">PRISM Climate Data</a>`,
+  attributionControl: true
+}).addTo(mymap);
 
   var colors = ['#c6dbef', '#9ecae1', '#6baed6', '#3182bd', '#08519c'];
 
